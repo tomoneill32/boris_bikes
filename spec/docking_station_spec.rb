@@ -20,13 +20,13 @@ describe DockingStation do
     expect(station.dock(bike)).to eq(bike)
   end
 
-  it { is_expected.to respond_to(:stored_bike) } #unit test
+  it { is_expected.to respond_to(:stored_bikes) } #unit test
 
   it 'Can see a bike that has been docked' do # feature test
     station = DockingStation.new
     bike = Bike.new
     station.dock(bike)
-    expect(station.stored_bike).to eq(bike)
+    expect(station.stored_bikes).to eq(bike)
   end
   
   describe '#release_bike' do
