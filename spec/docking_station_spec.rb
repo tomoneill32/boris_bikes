@@ -31,7 +31,7 @@ describe DockingStation do
 
   it 'Releasing a bike from an empty dock produces an error' do
     station = DockingStation.new
-    expect{station.release_bike}.to raise_error
+    expect{station.release_bike}.to raise_error 'No bikes available'
   end
 end
 
