@@ -17,7 +17,7 @@ describe DockingStation do
   it 'Can dock a bike at a docking station' do #feature test
     bike = Bike.new
     station = DockingStation.new
-    expect(station.dock(bike)).to eq(bike)
+    expect(station.dock(bike)).to eq([bike])
   end
 
   it { is_expected.to respond_to(:stored_bikes) } #unit test
@@ -26,7 +26,7 @@ describe DockingStation do
     station = DockingStation.new
     bike = Bike.new
     station.dock(bike)
-    expect(station.stored_bikes).to eq(bike)
+    expect(station.stored_bikes).to eq([bike])
   end
   
   describe '#release_bike' do
@@ -39,9 +39,8 @@ describe DockingStation do
   describe '#dock' do
     it 'raises an error when dock is full' do
       station = DockingStation.new
-      bike, bike2 = Bike.new, Bike.new
-      station.dock(bike)
-      expect{station.dock(bike2)}.to raise_error 'dock full'
+      20.times {station.dock(Bike.new)}
+      expect{station.dock(Bike.new)}.to raise_error 'dock full'
     end
   end
 

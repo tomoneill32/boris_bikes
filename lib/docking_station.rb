@@ -8,15 +8,15 @@ class DockingStation
   end
 
   def release_bike
-    if !@stored_bikes
+    if @stored_bikes.empty?
       fail 'No bikes available'
     else
-      @stored_bikes
+      @stored_bikes.pop
     end
   end
 
   def dock(bike)
-    fail 'dock full' if @stored_bikes
-    @stored_bikes = bike
+    fail 'dock full' if @stored_bikes.length >= 20
+    @stored_bikes << bike
   end
 end
