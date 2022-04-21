@@ -7,18 +7,20 @@ describe DockingStation do
   #Arrange
 
   # create a docking station
+  it 'Checking to see if a bike from the docking station works' do 
+    station = DockingStation.new
 
-  station = DockingStation.new
+    #Act
+   # release a bike from the docking station
+  
+    bike = station.release_bike
 
-  #Act
+    #Assert
+    # check to see whether this bike works
 
-  # release a bike from the docking station
-  bike = station.release_bike
-
-  #Assert
-
-  # check to see whether this bike works
-
+    expect(bike.working?).to eq(true)
+  end
+  
 
 end
 
