@@ -26,4 +26,10 @@ describe DockingStation do
     expect(station.dock(bike)).to eq(bike)
   end
 
+  it 'Can see a bike that has been docked' do
+    #Arrange
+    station = Bike.new
+  end
+
+
 end
