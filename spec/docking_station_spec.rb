@@ -6,6 +6,8 @@ describe DockingStation do
 
   it 'Checking to see if a bike from the docking station works' do #feature test
     station = DockingStation.new
+    bike = Bike.new
+    station.dock(bike)
     bike = station.release_bike
     expect(bike.working?).to eq(true)
   end
@@ -27,4 +29,11 @@ describe DockingStation do
     expect(station.stored_bike).to eq(bike)
   end
 
+  it 'Releasing a bike from an empty dock produces an error' do
+    station = DockingStation.new
+    expect{station.release_bike}.to raise_error
+  end
 end
+
+#I'd like docking stations not to release 
+# bikes when there are none available.
