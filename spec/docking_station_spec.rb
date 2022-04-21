@@ -14,22 +14,19 @@ describe DockingStation do
  
   end
 
-  it { expect(subject).to respond_to :dock }
-  #unit test dock works on DockingStation
+  it { expect(subject).to respond_to(:dock).with(1).argument }
 
   it 'Can dock a bike at a docking station' do
-    #Arrange
     bike = Bike.new
     station = DockingStation.new
-
-    #Assert
     expect(station.dock(bike)).to eq(bike)
   end
 
   it 'Can see a bike that has been docked' do
-    #Arrange
-    station = Bike.new
+    station = DockingStation.new
+    bike = Bike.new
+    station.dock(bike)
+    expect(station.stored_bike).to eq(bike)
   end
-
 
 end

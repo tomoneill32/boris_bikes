@@ -1,7 +1,7 @@
 require_relative './bike.rb'
 
 class DockingStation 
-
+  attr_reader :stored_bike
 
   def release_bike
     return Bike.new
