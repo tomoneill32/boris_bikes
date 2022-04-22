@@ -39,9 +39,26 @@ describe DockingStation do
   describe '#dock' do
     it 'raises an error when dock is full' do
       station = DockingStation.new
-      DockingStation::DEFAULT_CAPACITY.times{station.dock(Bike.new)}
+      station.capacity.times{station.dock(Bike.new)}
       expect{station.dock(Bike.new)}.to raise_error 'dock full'
     end
   end
 
+  describe 'initialization' do 
+    it 'has a variable capacity' do
+      station = DockingStation.new(50)
+      50.times { station.dock(Bike.new)}
+      expect{ station.dock(Bike.new)}.to raise_error 'dock full'
+    end
+  end
+
+  it 'Allows user to set capacity when it is created' do
+    station = DockingStation.new(1)
+    expect(station.capacity).to eq(1)
+  end
+
+  it 'Has a default capacity of DEFAULT_CAPACITY when no argument is provided' do 
+    station = DockingStation.new
+    expect(station.capacity).to eq(DockingStation::DEFAULT_CAPACITY)
+  end
 end
