@@ -1,5 +1,5 @@
 require_relative './bike.rb'
-
+#test
 class DockingStation 
   attr_reader :stored_bikes
 
