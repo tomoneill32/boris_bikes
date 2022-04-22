@@ -45,6 +45,3 @@ describe DockingStation do
   end
 
 end
-
-#I'd like docking stations not to release 
-# bikes when there are none available.

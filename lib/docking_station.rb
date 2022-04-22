@@ -16,7 +16,18 @@ class DockingStation
   end
 
   def dock(bike)
-    fail 'dock full' if @stored_bikes.length >= 20
+    fail 'dock full' if self.full?
     @stored_bikes << bike
   end
+
+  private
+
+  def full?
+    @stored_bikes.length >=20
+  end
+
+  def empty?
+    @stored_bikes.empty?
+  end
+  
 end
